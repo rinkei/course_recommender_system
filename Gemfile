@@ -43,3 +43,20 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# COMMON
+gem 'slim-rails'
+gem 'factory_girl_rails'
+gem "therubyracer"
+
+# DEVELOPMENT AND TEST
+group :development, :test do
+  gem "rspec-rails", "~> 3.0.0.beta"
+  gem 'pry-rails'
+  gem 'pry-debugger'
+end
+
+# DEVELOPMENT
+group :development do
+  gem 'i18n_generators'
+end
