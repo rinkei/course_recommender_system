@@ -1,0 +1,16 @@
+h2 = @course.name
+
+.intended
+  .grade
+    '学年:
+    = @course.grade
+
+  .department
+    '学科・専攻:
+    = @course.department.name
+
+.introduction
+  = @course.introduction
+
+.aim
+  = @course.aim
