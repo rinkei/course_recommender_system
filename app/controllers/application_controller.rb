@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       session[:user_id] = nil
     end
   end
+
+  def require_login
+    redirect_to new_session_path unless current_user
+  end
 end

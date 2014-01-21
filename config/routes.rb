@@ -3,7 +3,11 @@ CourseRecommenderSystem::Application.routes.draw do
 
   resource :session, only: %w(new create destroy)
 
-  resources :courses, only: %w(index show)
+  resources :courses, only: %w(index show) do
+    collection do
+      get 'recommendation'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

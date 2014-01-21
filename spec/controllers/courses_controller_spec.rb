@@ -18,4 +18,14 @@ describe CoursesController do
       assigns(:course).should eq(course)
     end
   end
+
+  describe "GET recommendation" do
+    let(:course){FactoryGirl.create(:course)}
+
+    it "assigns all courses as @courses" do
+      Course.stub(:recommended_for).and_return(Course.all)
+      get :recommendation
+      assigns(:courses).should eq([course])
+    end
+  end
 end
