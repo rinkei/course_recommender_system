@@ -14,4 +14,13 @@ html lang="en"
     = javascript_include_tag "application", "data-turbolinks-track" => true
 
   body
+    - if current_user
+      = current_user.name
+      = link_to 'logout', session_path, method: 'delete'
+    - else
+      = link_to 'login', new_session_path
+
+    .notice = flash[:notice]
+    .alert = flash[:alert]
+
     = yield

@@ -1,0 +1,10 @@
+h1 = t('feature.login')
+
+= simple_form_for(@user, url: session_path, method: 'post') do |f|
+  = f.error_notification
+
+  = f.input :email
+  = f.input :password
+
+  .actions
+    = f.submit 'login'

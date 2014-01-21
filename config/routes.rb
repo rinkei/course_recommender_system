@@ -1,4 +1,8 @@
 CourseRecommenderSystem::Application.routes.draw do
+  root 'courses#index'
+
+  resource :session, only: %w(new create destroy)
+
   resources :courses, only: %w(index)
 
   # The priority is based upon order of creation: first created -> highest priority.

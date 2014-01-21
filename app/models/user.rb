@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :grade, presence: true
   validates :department, presence: true
+
+  has_secure_password
 end

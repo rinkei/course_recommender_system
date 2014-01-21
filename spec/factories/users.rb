@@ -6,5 +6,7 @@ FactoryGirl.define do
     sequence(:name){|n| "User#{n}"}
     grade {rand(1..5)}
     department
+    password "password"
+    password_confirmation "password"
   end
 end
