@@ -21,11 +21,23 @@ describe CoursesController do
 
   describe "GET recommendation" do
     let(:course){FactoryGirl.create(:course)}
+    let(:user){FactoryGirl.create(:user)}
 
-    it "assigns all courses as @courses" do
-      Course.stub(:recommended_for).and_return(Course.all)
-      get :recommendation
-      assigns(:courses).should eq([course])
+    context "with login user" do
+      it "assigns all courses as @courses" do
+        session[:user_id] = user.id
+        Course.stub(:recommended_for).and_return(Course.all)
+        get :recommendation
+        assigns(:courses).should eq([course])
+      end
+    end
+
+    context "without login user" do
+      it "assigns all courses as @courses" do
+        session[:user_id] = nil
+        get :recommendation
+        response.should redirect_to(new_session_path)
+      end
     end
   end
 end
